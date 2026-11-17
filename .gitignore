@@ -1,0 +1,24 @@
+# Build output (README build commands write to out/)
+out/
+build/
+.cxx/
+*.o
+*.obj
+
+# Upstream archive and its extracted copy, used only to verify (MODIFICATIONS.md)
+lame-3.100.tar.gz
+lame-3.100/
+
+# Signing keys and APKs from the replacement steps
+*.jks
+*.keystore
+*.apk
+*.idsig
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+local.properties
+.DS_Store
+Thumbs.db

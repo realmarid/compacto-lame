@@ -1,0 +1,13 @@
+LAME (MP3 encoder)
+
+Compacto uses LAME 3.100 to make MP3 files from video or audio.
+
+LAME is open-source software distributed under the GNU Library General Public License, version 2 (LGPL). The full license text is in src/main/cpp/lame/COPYING.
+
+Compacto uses LAME unmodified, as a shared library (.so) kept separate from the app's own code.
+
+The LAME source included in Compacto (an unmodified subset of lame-3.100) and the files used to build the library (the CMake configuration and the JNI bridge) are in this repository under src/main/cpp/. The complete original (lame-3.100.tar.gz) is also at https://lame.sourceforge.io/. For at least three years from the date we distribute this app, you can also request them by email.
+
+You may rebuild this library (libcompactolame.so) from modified LAME source and replace it; reverse engineering to debug such modifications is permitted.
+
+Contact: nujiwave.biz@gmail.com

@@ -1,0 +1,19 @@
+LAME upstream source
+
+Name: lame-3.100.tar.gz
+Size: 1,524,133 bytes
+SHA-256: ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e
+URL: https://lame.sourceforge.io/
+
+How Compacto builds libcompactolame.so (engine-audio, release build)
+
+Source used: src/main/cpp/lame/ (include/, libmp3lame/*.c, COPYING, LICENSE, README from the archive above) and src/main/cpp/lame_jni.c
+Android NDK: 28.2.13676358
+CMake: 3.22.1 with Ninja; build script src/main/cpp/CMakeLists.txt
+CMake arguments: -DCMAKE_BUILD_TYPE=RelWithDebInfo -DANDROID_PLATFORM=android-26 -DANDROID_STL=none -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+ABIs: arm64-v8a, armeabi-v7a, x86_64
+Compile definitions: STDC_HEADERS=1 HAVE_LIMITS_H=1 HAVE_STDINT_H=1 HAVE_INTTYPES_H=1 HAVE_ERRNO_H=1 HAVE_FCNTL_H=1 HAVE_MEMCPY=1 HAVE_STRCHR=1 ieee754_float32_t=float LAME_LIBRARY_BUILD=1 NDEBUG=1
+Compile options (CMakeLists.txt): -w -O2 -fvisibility=hidden
+Compile flags added by the NDK toolchain: -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -g -DNDEBUG -fPIC (armeabi-v7a also -march=armv7-a -mthumb)
+Link options (CMakeLists.txt): -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384, linked with libm
+The Android Gradle plugin strips debug symbols from the .so when it packages the app.
